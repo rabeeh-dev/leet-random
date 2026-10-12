@@ -13,8 +13,12 @@ function App() {
     setQuestion(null);
 
     try {
+      const apiBase =
+        import.meta.env.VITE_API_URL ||
+        (import.meta.env.DEV ? "http://localhost:5001" : "");
+
       const response = await fetch(
-        `http://localhost:5001/api/questions?difficulty=${difficulty}`
+        `${apiBase}/api/questions?difficulty=${difficulty}`
       );
 
       const data = await response.json();

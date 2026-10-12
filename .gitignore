@@ -18,6 +18,7 @@ dist/
 dist-ssr/
 build/
 client/dist/
+.vercel
 
 # Logs
 logs/
@@ -48,3 +49,4 @@ coverage/
 .cache/
 .eslintcache
 *.tsbuildinfo
+.env*

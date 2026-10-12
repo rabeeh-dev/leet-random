@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // Test route
-app.get("/", (req, res) => {
+app.get(["/", "/api"], (req, res) => {
   res.json({
     message: "LeetRandom API is running!",
   });
@@ -119,6 +119,10 @@ app.get("/api/debug-schema", async (req, res) => {
 
 
 
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+  });
+}
+
+export default app;
